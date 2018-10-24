@@ -58,8 +58,6 @@
     <Compile Include="SortingGame.xaml.cs">
       <DependentUpon>SortingGame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Square.cs" />
-    <Compile Include="SquareBox.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
