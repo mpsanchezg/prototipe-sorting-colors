@@ -1,0 +1,17 @@
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\bin\Debug\SortingColorsGame.exe.config
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\bin\Debug\SortingColorsGame.exe
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\bin\Debug\SortingColorsGame.pdb
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\SortingColorsGame.csprojAssemblyReference.cache
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\MainWindow.g.cs
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\SortingGame.g.cs
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\App.g.cs
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\SortingColorsGame_MarkupCompile.cache
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\SortingColorsGame_MarkupCompile.lref
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\MainWindow.baml
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\SortingGame.baml
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\SortingColorsGame.g.resources
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\SortingColorsGame.Properties.Resources.resources
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\SortingColorsGame.csproj.GenerateResource.cache
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\SortingColorsGame.csproj.CoreCompileInputs.cache
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\SortingColorsGame.exe
+D:\Users\mpsan\source\repos\SortingColorsGame\SortingColorsGame\obj\Debug\SortingColorsGame.pdb
