@@ -56,8 +56,29 @@ namespace SortingColorsGame
 			Ellipse ellipse = (Ellipse) element;
 			TouchPoint touchPoint = e.GetTouchPoint(canvas);
 			Canvas.SetTop(ellipse, touchPoint.Bounds.Top);
-			Canvas.SetTop(ellipse, touchPoint.Bounds.Left);
+			Canvas.SetLeft(ellipse, touchPoint.Bounds.Left);
 		}
 
+		private void canvas_ManipulationStarting(object sender, ManipulationStartingEventArgs e)
+		{
+			e.ManipulationContainer = canvas;
+			e.Mode = ManipulationModes.All;
+		}
+
+		private void canvas_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
+		{
+			UIElement element = (UIElement)e.Source;
+			Matrix matrix = ((MatrixTransform)element.RenderTransform).Matrix;
+
+			ManipulationDelta deltaManipulation = e.DeltaManipulation;
+			Image iE = (Image)element;
+			Point center = new Point(iE.ActualWidth/2, iE.ActualWidth/2);
+			center = matrix.Transform(center);
+
+			matrix.Scale(deltaManipulation.Scale.X, deltaManipulation.Scale.Y);
+			matrix.Translate(e.DeltaManipulation.Translation.X, e.DeltaManipulation.Translation.Y);
+
+			((MatrixTransform)element.RenderTransform).Matrix = matrix;
+		}
 	}
 }

@@ -7,5 +7,19 @@
         mc:Ignorable="d"
         Title="SortingGame" Height="450" Width="800">
     <Canvas Name="canvas" Background="LightSkyBlue" TouchDown="canvas_TouchDown" 
-            TouchUp="canvas_TouchUp" TouchMove="canvas_TouchMove"></Canvas>
-    </Window>
+            TouchUp="canvas_TouchUp" TouchMove="canvas_TouchMove" 
+            ManipulationStarting="canvas_ManipulationStarting" ManipulationDelta="canvas_ManipulationDelta">
+        <Image Canvas.Top="10" Canvas.Left="10" Width="200" IsManipulationEnabled="True" 
+               Source="D:\Users\mpsan\source\repos\SortingColorsGame\manzana.jpg" >
+            <Image.RenderTransform>
+                <MatrixTransform></MatrixTransform>
+            </Image.RenderTransform>
+        </Image>
+        <Image Canvas.Top="10" Canvas.Left="350" Width="200" IsManipulationEnabled="True" 
+               Source="D:\Users\mpsan\source\repos\SortingColorsGame\manzana.jpg" >
+            <Image.RenderTransform>
+                <MatrixTransform></MatrixTransform>
+            </Image.RenderTransform>
+        </Image>
+    </Canvas>
+ </Window>
