@@ -19,50 +19,19 @@ namespace SortingColorsGame
     /// </summary>
     public partial class SortingGame : Window
     {
-		private Dictionary<int, UIElement> movingEllipses = new Dictionary<int, UIElement>();
+        private Dictionary<int, UIElement> movingEllipses = new Dictionary<int, UIElement>();
 
         public SortingGame()
         {
             InitializeComponent();
         }
 
-		public static bool Relative { get; internal set; }
-
-		private void canvas_TouchDown(object sender, TouchEventArgs e)
-		{
-			Ellipse ellipse = new Ellipse();
-			ellipse.Width = 30;
-			ellipse.Height = 30;
-			ellipse.Stroke = Brushes.White;
-			ellipse.Fill = Brushes.Green;
-			TouchPoint touchPoint = e.GetTouchPoint(canvas);
-			Canvas.SetTop(ellipse, touchPoint.Bounds.Top);
-			Canvas.SetTop(ellipse, touchPoint.Bounds.Left);
-
-			movingEllipses[e.TouchDevice.Id] = ellipse;
-			canvas.Children.Add(ellipse);
-		}
-
-		private void canvas_TouchUp(object sender, TouchEventArgs e)
-		{
-			UIElement element = movingEllipses[e.TouchDevice.Id];
-			canvas.Children.Remove(element);
-			movingEllipses.Remove(e.TouchDevice.Id);
-		}
-
-		private void canvas_TouchMove(object sender, TouchEventArgs e)
-		{
-			UIElement element = movingEllipses[e.TouchDevice.Id];
-			Ellipse ellipse = (Ellipse) element;
-			TouchPoint touchPoint = e.GetTouchPoint(canvas);
-			Canvas.SetTop(ellipse, touchPoint.Bounds.Top);
-			Canvas.SetLeft(ellipse, touchPoint.Bounds.Left);
-		}
-
+        public static bool Relative { get; internal set; }
+                
 		private void canvas_ManipulationStarting(object sender, ManipulationStartingEventArgs e)
 		{
 			e.ManipulationContainer = canvas;
-			e.Mode = ManipulationModes.All;
+			e.Mode = ManipulationModes.Translate;
 		}
 
 		private void canvas_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
@@ -79,6 +48,7 @@ namespace SortingColorsGame
 			matrix.Translate(e.DeltaManipulation.Translation.X, e.DeltaManipulation.Translation.Y);
 
 			((MatrixTransform)element.RenderTransform).Matrix = matrix;
+            
 		}
 	}
 }
