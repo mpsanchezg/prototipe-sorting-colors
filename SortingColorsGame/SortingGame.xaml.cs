@@ -47,9 +47,10 @@ namespace SortingColorsGame
 			matrix.Scale(deltaManipulation.Scale.X, deltaManipulation.Scale.Y);
 			matrix.Translate(e.DeltaManipulation.Translation.X, e.DeltaManipulation.Translation.Y);
 
-			((MatrixTransform)element.RenderTransform).Matrix = matrix;
+			Point red_button_point = new Point(red_button.ActualWidth, red_button.ActualHeight);
 
-			if (red_button.AreAnyTouchesOver)
+			((MatrixTransform)element.RenderTransform).Matrix = matrix;
+			if (red_button.AreAnyTouchesOver &&  center == red_button_point)
 			{
 				iE.Visibility = Visibility.Collapsed;
 			}
