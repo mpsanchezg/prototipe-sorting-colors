@@ -11,27 +11,27 @@
         <Grid x:Name="red_button_grid" Height="42.5" Canvas.Left="118.334" Canvas.Top="78.5" Width="87.333">
             <Button x:Name="red_button" Content="Button" Background="#FFFF7272" Margin="0,0,0,-0.167" Height="42.667" VerticalAlignment="Top"/>
         </Grid>
-        <Image Canvas.Top="120" Canvas.Left="262" Width="100" IsManipulationEnabled="True" 
-               Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" >
+        <Image Canvas.Top="99.85" Canvas.Left="171.328" Width="100" IsManipulationEnabled="True" 
+               Source="D:\Users\mpsan\source\repos\SortingColorsGame\manzana.jpg" >
             <Image.RenderTransform>
                 <MatrixTransform/>
             </Image.RenderTransform>
         </Image>
         <Image Canvas.Top="120" Canvas.Left="422" Width="100" IsManipulationEnabled="True" 
-               Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" >
+               Source="D:\Users\mpsan\source\repos\SortingColorsGame\manzana.jpg" >
             <Image.RenderTransform>
                 <MatrixTransform/>
             </Image.RenderTransform>
         </Image>
         <Image Canvas.Top="240" Canvas.Left="422" Width="100" IsManipulationEnabled="True" 
-               Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" >
+               Source="D:\Users\mpsan\source\repos\SortingColorsGame\manzana.jpg" >
             <Image.RenderTransform>
                 <MatrixTransform/>
             </Image.RenderTransform>
         </Image>
         <Grid x:Name="red_image1_grid" Height="81.334" Canvas.Left="259.667" Canvas.Top="230.355" Width="102.333" RenderTransformOrigin="0.529,0.715">
             <Image x:Name="red_image1" IsManipulationEnabled="True" 
-        		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" >
+        		Source="D:\Users\mpsan\source\repos\SortingColorsGame\manzana.jpg" >
                 <Image.RenderTransform>
                     <MatrixTransform/>
                 </Image.RenderTransform>
