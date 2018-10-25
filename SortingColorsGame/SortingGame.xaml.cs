@@ -37,12 +37,20 @@ namespace SortingColorsGame
 		private void canvas_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
 		{
 			UIElement element = (UIElement)e.Source;
-			Matrix matrix = ((MatrixTransform)element.RenderTransform).Matrix;
+            UIElement btn = (UIElement)red_button;
+            Matrix matrix = ((MatrixTransform)element.RenderTransform).Matrix;
 
 			ManipulationDelta deltaManipulation = e.DeltaManipulation;
 			Image iE = (Image)element;
-			Point center = new Point(iE.ActualWidth / 2, iE.ActualWidth / 2);
-			center = matrix.Transform(center);
+            //var transform = iE.TransformToVisual(canvas);
+            //Point absolutePosition = transform.Transform(new Point(0,0));
+
+            var image_coord_x = Canvas.GetTop(element);
+            var image_coord_y = Canvas.GetLeft(element);
+
+            Point center = new Point(iE.ActualWidth / 2, iE.ActualWidth / 2);
+            Point image_coord = new Point(iE.ActualHeight, iE.ActualWidth);
+            center = matrix.Transform(center);
 
 			matrix.Scale(deltaManipulation.Scale.X, deltaManipulation.Scale.Y);
 			matrix.Translate(e.DeltaManipulation.Translation.X, e.DeltaManipulation.Translation.Y);
@@ -50,8 +58,10 @@ namespace SortingColorsGame
 			Point red_button_point = new Point(red_button.ActualWidth, red_button.ActualHeight);
 
 			((MatrixTransform)element.RenderTransform).Matrix = matrix;
-			if (red_button.AreAnyTouchesOver &&  center == red_button_point)
+			if (image_coord_x < 215 && image_coord_y < 192)
 			{
+                Console.WriteLine(image_coord);
+                Console.WriteLine(red_button_point);
 				iE.Visibility = Visibility.Collapsed;
 			}
 			

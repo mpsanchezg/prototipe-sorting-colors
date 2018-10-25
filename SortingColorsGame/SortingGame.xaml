@@ -6,37 +6,36 @@
         xmlns:local="clr-namespace:SortingColorsGame"
         mc:Ignorable="d"
         Title="SortingGame" Height="450" Width="800">
-    <Canvas Name="canvas" Background="LightSkyBlue" 
+    <Canvas Name="canvas" Background="White" 
             ManipulationStarting="canvas_ManipulationStarting" ManipulationDelta="canvas_ManipulationDelta">
-        <Grid x:Name="red_button_grid" Height="42.5" Canvas.Left="118.334" Canvas.Top="78.5" Width="87.333">
-            <Button x:Name="red_button" Content="Button" Background="#FFFF7272" Margin="0,0,0,-0.167" Height="42.667" VerticalAlignment="Top"/>
-        </Grid>
-        <Image Canvas.Top="99.85" Canvas.Left="171.328" Width="100" IsManipulationEnabled="True" 
-               Source="D:\Users\mpsan\source\repos\SortingColorsGame\manzana.jpg" >
+        <Button x:Name="yellow_button" Content="Button" Background="#FFFFFB72" Height="192" VerticalAlignment="Top" Width="215" Canvas.Left="578.333" Canvas.Top="228.667"/>
+        <Button x:Name="green_button" Content="Button" Background="#FF9DFF72" Height="192" VerticalAlignment="Top" Width="215" RenderTransformOrigin="2.729,0.547" Canvas.Left="578"/>
+        <Button x:Name="blue_button" Content="Button" Background="#FF72A5FF" Height="192" VerticalAlignment="Top" Width="215" Canvas.Top="231"/>
+        <Button x:Name="red_button" Content="Button" Background="#FFFF7272" Height="192" VerticalAlignment="Top" Width="215"/>
+        <Image Canvas.Top="120" Canvas.Left="262" Width="100" IsManipulationEnabled="True" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" >
             <Image.RenderTransform>
                 <MatrixTransform/>
             </Image.RenderTransform>
         </Image>
         <Image Canvas.Top="120" Canvas.Left="422" Width="100" IsManipulationEnabled="True" 
-               Source="D:\Users\mpsan\source\repos\SortingColorsGame\manzana.jpg" >
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" >
             <Image.RenderTransform>
                 <MatrixTransform/>
             </Image.RenderTransform>
         </Image>
         <Image Canvas.Top="240" Canvas.Left="422" Width="100" IsManipulationEnabled="True" 
-               Source="D:\Users\mpsan\source\repos\SortingColorsGame\manzana.jpg" >
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" >
             <Image.RenderTransform>
                 <MatrixTransform/>
             </Image.RenderTransform>
         </Image>
-        <Grid x:Name="red_image1_grid" Height="81.334" Canvas.Left="259.667" Canvas.Top="230.355" Width="102.333" RenderTransformOrigin="0.529,0.715">
-            <Image x:Name="red_image1" IsManipulationEnabled="True" 
-        		Source="D:\Users\mpsan\source\repos\SortingColorsGame\manzana.jpg" >
-                <Image.RenderTransform>
-                    <MatrixTransform/>
-                </Image.RenderTransform>
-            </Image>
-        </Grid>
+        <Image x:Name="red_image1" IsManipulationEnabled="True" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" Height="81.334" Width="102.333" Canvas.Left="262" Canvas.Top="240" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
     </Canvas>
 
 </Window>
