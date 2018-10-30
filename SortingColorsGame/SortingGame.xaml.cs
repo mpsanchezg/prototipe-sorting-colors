@@ -12,14 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace SortingColorsGame
 {
-	/// <summary>
-	/// Lógica de interacción para SortingGame.xaml
-	/// </summary>
+    /// <summary>
+    /// Lógica de interacción para SortingGame.xaml
+    /// </summary>
 	public partial class SortingGame : Window
 	{
-		private Dictionary<int, UIElement> movingEllipses = new Dictionary<int, UIElement>();
+        int red_images_sorted    = 0;
+        int yellow_images_sorted = 0;
+        int blue_images_sorted   = 0;
+        int green_images_sorted  = 0;
+
+        private Dictionary<int, UIElement> movingEllipses = new Dictionary<int, UIElement>();
 
 		public SortingGame()
 		{
@@ -77,5 +83,81 @@ namespace SortingColorsGame
 
 
 		}
-	}
+
+        private void red_image_TouchUp(object sender, TouchEventArgs e)
+        {
+            Image image = (Image)sender;
+
+            var image_coord_x = e.GetTouchPoint(canvas).Position.X;
+            var image_coord_y = e.GetTouchPoint(canvas).Position.Y;
+
+            if (image_coord_x < 335 && image_coord_y < 270)
+            {
+                image.Visibility = Visibility.Collapsed;
+                red_images_sorted++;
+            }
+
+            if (red_images_sorted == 4 && blue_images_sorted == 4 && green_images_sorted == 4 && yellow_images_sorted == 4)
+            {
+                MessageBox.Show("Juego Terminado");
+            }
+        }
+
+        private void blue_image_TouchUp(object sender, TouchEventArgs e)
+        {
+            Image image = (Image)sender;
+
+            var image_coord_x = e.GetTouchPoint(canvas).Position.X;
+            var image_coord_y = e.GetTouchPoint(canvas).Position.Y;
+
+            if (image_coord_x < 335 && image_coord_y > 400)
+            {
+                image.Visibility = Visibility.Collapsed;
+                blue_images_sorted++;
+            }
+
+            if (red_images_sorted == 4 && blue_images_sorted == 4 && green_images_sorted == 4 && yellow_images_sorted == 4)
+            {
+                MessageBox.Show("Juego Terminado");
+            }
+        }
+
+        private void green_image_TouchUp(object sender, TouchEventArgs e)
+        {
+            Image image = (Image)sender;
+
+            var image_coord_x = e.GetTouchPoint(canvas).Position.X;
+            var image_coord_y = e.GetTouchPoint(canvas).Position.Y;
+
+            if (image_coord_x > 925 && image_coord_y < 270)
+            {
+                image.Visibility = Visibility.Collapsed;
+                green_images_sorted++;
+            }
+
+            if (red_images_sorted == 4 && blue_images_sorted == 4 && green_images_sorted == 4 && yellow_images_sorted == 4)
+            {
+                MessageBox.Show("Juego Terminado");
+            }
+        }
+
+        private void yellow_image_TouchUp(object sender, TouchEventArgs e)
+        {
+            Image image = (Image)sender;
+
+            var image_coord_x = e.GetTouchPoint(canvas).Position.X;
+            var image_coord_y = e.GetTouchPoint(canvas).Position.Y;
+
+            if (image_coord_x > 925 && image_coord_y > 270)
+            {
+                image.Visibility = Visibility.Collapsed;
+                yellow_images_sorted++;
+            }
+
+            if (red_images_sorted == 4 && blue_images_sorted == 4 && green_images_sorted == 4 && yellow_images_sorted == 4)
+            {
+                MessageBox.Show("Juego Terminado");
+            }
+        }
+    }
 }

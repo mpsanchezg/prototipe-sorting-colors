@@ -5,33 +5,105 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SortingColorsGame"
         mc:Ignorable="d"
-        Title="SortingGame" Height="450" Width="800">
+        Title="SortingGame" Height="708" Width="1260">
     <Canvas Name="canvas" Background="White" 
             ManipulationStarting="canvas_ManipulationStarting" ManipulationDelta="canvas_ManipulationDelta">
-        <Button x:Name="yellow_button" Content="Button" Background="#FFFFFB72" Height="192" VerticalAlignment="Top" Width="215" Canvas.Left="578.333" Canvas.Top="228.667"/>
-        <Button x:Name="green_button" Content="Button" Background="#FF9DFF72" Height="192" VerticalAlignment="Top" Width="215" RenderTransformOrigin="2.729,0.547" Canvas.Left="578"/>
-        <Button x:Name="blue_button" Content="Button" Background="#FF72A5FF" Height="192" VerticalAlignment="Top" Width="215" Canvas.Top="231"/>
-        <Button x:Name="red_button" Content="Button" Background="#FFFF7272" Height="192" VerticalAlignment="Top" Width="215"/>
-        <Image Canvas.Top="120" Canvas.Left="262" Width="100" IsManipulationEnabled="True" 
+        <Button x:Name="yellow_button" Background="#FFFFFB72" Height="302" VerticalAlignment="Top" Width="373" Canvas.Left="880" Canvas.Top="377"/>
+        <Button x:Name="green_button" Background="#FF9DFF72" Height="318" VerticalAlignment="Top" Width="373" RenderTransformOrigin="2.729,0.547" Canvas.Left="880"/>
+        <Button x:Name="blue_button" Background="#FF72A5FF" Height="302" VerticalAlignment="Top" Width="383" Canvas.Top="377"/>
+        <Button x:Name="red_button" Background="#FFFF7272" Height="318" VerticalAlignment="Top" Width="383"/>
+        <Image Canvas.Top="56" Canvas.Left="474" Width="100" IsManipulationEnabled="True" TouchUp="red_image_TouchUp"
     		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" >
             <Image.RenderTransform>
                 <MatrixTransform/>
             </Image.RenderTransform>
         </Image>
-        <Image Canvas.Top="120" Canvas.Left="422" Width="100" IsManipulationEnabled="True" 
+        <Image Canvas.Top="465" Canvas.Left="520" Width="100" IsManipulationEnabled="True" TouchUp="red_image_TouchUp"
     		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" >
             <Image.RenderTransform>
                 <MatrixTransform/>
             </Image.RenderTransform>
         </Image>
-        <Image Canvas.Top="240" Canvas.Left="422" Width="100" IsManipulationEnabled="True" 
+        <Image Canvas.Top="56" Canvas.Left="724" Width="100" IsManipulationEnabled="True" TouchUp="red_image_TouchUp"
     		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" >
             <Image.RenderTransform>
                 <MatrixTransform/>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="red_image1" IsManipulationEnabled="True" 
-    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" Height="81.334" Width="102.333" Canvas.Left="262" Canvas.Top="240" >
+        <Image x:Name="red_image1" IsManipulationEnabled="True" TouchUp="red_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana.jpg" Height="81" Width="102" Canvas.Left="724" Canvas.Top="465" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="blue_image1" IsManipulationEnabled="True" TouchUp="blue_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana-azul.jpg" Height="80" Width="102" Canvas.Left="472" Canvas.Top="542" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="blue_image2" IsManipulationEnabled="True" TouchUp="blue_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana-azul.jpg" Height="81" Width="102" Canvas.Left="722" Canvas.Top="370" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="blue_image3" IsManipulationEnabled="True" TouchUp="blue_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana-azul.jpg" Height="81" Width="102" Canvas.Left="604" Canvas.Top="47" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="blue_image4" IsManipulationEnabled="True" TouchUp="blue_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana-azul.jpg" Height="80" Width="102" Canvas.Left="574" Canvas.Top="152" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="yellow_image1" IsManipulationEnabled="True" TouchUp="yellow_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana-amarilla.jpg" Height="81" Width="102" Canvas.Left="769" Canvas.Top="284" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="yellow_image2" IsManipulationEnabled="True" TouchUp="yellow_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana-amarilla.jpg" Height="81" Width="102" Canvas.Left="722" Canvas.Top="152" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="yellow_image3" IsManipulationEnabled="True" TouchUp="yellow_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana-amarilla.jpg" Height="80" Width="102" Canvas.Left="672" Canvas.Top="266" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="yellow_image4" IsManipulationEnabled="True" TouchUp="yellow_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana-amarilla.jpg" Height="81" Width="102" Canvas.Left="604" Canvas.Top="542" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="green_image1" IsManipulationEnabled="True" TouchUp="green_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana-verde.jpg" Height="81" Width="102" Canvas.Left="565" Canvas.Top="265" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="green_image2" IsManipulationEnabled="True" TouchUp="green_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana-verde.jpg" Height="81" Width="102" Canvas.Left="604" Canvas.Top="456" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="green_image3" IsManipulationEnabled="True" TouchUp="green_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana-verde.jpg" Height="81" Width="102" Canvas.Left="472" Canvas.Top="184" >
+            <Image.RenderTransform>
+                <MatrixTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="green_image4" IsManipulationEnabled="True" TouchUp="green_image_TouchUp" 
+    		Source="C:\Proyecto 4 Arquitectura de Computadores 201820\prototipe-sorting-colors\manzana-verde.jpg" Height="80" Width="102" Canvas.Left="474" Canvas.Top="356" >
             <Image.RenderTransform>
                 <MatrixTransform/>
             </Image.RenderTransform>
