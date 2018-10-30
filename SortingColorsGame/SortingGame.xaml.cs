@@ -48,11 +48,6 @@ namespace SortingColorsGame
 
 			ManipulationDelta deltaManipulation = e.DeltaManipulation;
 			Image iE = (Image)element;
-            //var transform = iE.TransformToVisual(canvas);
-            //Point absolutePosition = transform.Transform(new Point(0,0));
-
-            var image_coord_x = Canvas.GetTop(element);
-            var image_coord_y = Canvas.GetLeft(element);
 
             Point center = new Point(iE.ActualWidth / 2, iE.ActualWidth / 2);
             Point image_coord = new Point(iE.ActualHeight, iE.ActualWidth);
@@ -64,12 +59,6 @@ namespace SortingColorsGame
 			Point red_button_point = new Point(red_button.ActualWidth, red_button.ActualHeight);
 
 			((MatrixTransform)element.RenderTransform).Matrix = matrix;
-			if (image_coord_x < 215 && image_coord_y < 192)
-			{
-                Console.WriteLine(image_coord);
-                Console.WriteLine(red_button_point);
-				iE.Visibility = Visibility.Collapsed;
-			}
 			
 		}
 
