@@ -34,8 +34,8 @@ namespace SortingColorsGame
 			else
 			{
 				SortingGame sortingGame = new SortingGame();
-
-				this.Close();
+                sortingGame.WindowState = WindowState.Maximized;
+                this.Close();
 				sortingGame.ShowDialog();
 			}
 		}

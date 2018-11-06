@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Diagnostics;
 
 
 namespace SortingColorsGame
@@ -19,7 +21,7 @@ namespace SortingColorsGame
     /// Lógica de interacción para SortingGame.xaml
     /// </summary>
 	public partial class SortingGame : Window
-	{
+    {
         int red_images_sorted    = 0;
         int yellow_images_sorted = 0;
         int blue_images_sorted   = 0;
@@ -27,12 +29,66 @@ namespace SortingColorsGame
 
         private Dictionary<int, UIElement> movingEllipses = new Dictionary<int, UIElement>();
 
+        private Dictionary<string, int> initialImagesPosition = new Dictionary<string, int>();
+
+        private List<Image>      images;
+        private List<Point> imageCoords;
+        
+
+        DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        Stopwatch stopwatch = new Stopwatch();
+        string currentTime = string.Empty;
+
 		public SortingGame()
 		{
+            
 			InitializeComponent();
-		}
+            dispatcherTimer.Tick += new EventHandler(dt_Tick);
+            images = new List<Image> ();
+            imageCoords = new List<Point> ();
+        }
 
 		public static bool Relative { get; internal set; }
+
+        void dt_Tick(object sender, EventArgs e)
+        {
+            if (stopwatch.IsRunning)
+            {
+                TimeSpan ts = stopwatch.Elapsed;
+                currentTime = String.Format("{0:00}:{1:00}:{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                clocktxtblock.Text = currentTime;
+            }
+        }
+
+        private void reset_window()
+        {
+            red_images_sorted = 0;
+            yellow_images_sorted = 0;
+            blue_images_sorted = 0;
+            green_images_sorted = 0;
+
+            red_image1.Visibility = Visibility.Visible;
+        }
+
+        private void startbtn_Click(object sender, RoutedEventArgs e)
+        {
+            stopwatch.Start();
+            dispatcherTimer.Start();
+        }
+
+        private void stopbtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (stopwatch.IsRunning)
+            {
+                stopwatch.Stop();
+            }
+        }
+
+        private void resetbtn_Click(object sender, RoutedEventArgs e)
+        {
+            stopwatch.Reset();
+            clocktxtblock.Text = "00:00:00";
+        }
 
 		private void canvas_ManipulationStarting(object sender, ManipulationStartingEventArgs e)
 		{
@@ -45,12 +101,16 @@ namespace SortingColorsGame
 			UIElement element = (UIElement)e.Source;
             UIElement btn = (UIElement)red_button;
             Matrix matrix = ((MatrixTransform)element.RenderTransform).Matrix;
-
 			ManipulationDelta deltaManipulation = e.DeltaManipulation;
 			Image iE = (Image)element;
-
             Point center = new Point(iE.ActualWidth / 2, iE.ActualWidth / 2);
-            Point image_coord = new Point(iE.ActualHeight, iE.ActualWidth);
+
+            if (!(images.Contains(iE)))
+            {
+                images.Add(iE);
+                imageCoords.Add(center);
+            }
+
             center = matrix.Transform(center);
 
 			matrix.Scale(deltaManipulation.Scale.X, deltaManipulation.Scale.Y);
@@ -69,8 +129,6 @@ namespace SortingColorsGame
 			Image iE = (Image)element;
 
 			iE.Visibility = Visibility.Collapsed;
-
-
 		}
 
         private void red_image_TouchUp(object sender, TouchEventArgs e)
@@ -83,12 +141,19 @@ namespace SortingColorsGame
             if (image_coord_x < 335 && image_coord_y < 270)
             {
                 image.Visibility = Visibility.Collapsed;
-                red_images_sorted++;
+                red_images_sorted++;                
             }
 
-            if (red_images_sorted == 4 && blue_images_sorted == 4 && green_images_sorted == 4 && yellow_images_sorted == 4)
+            if (red_images_sorted >= 4 && blue_images_sorted >= 4 && green_images_sorted >= 4 && yellow_images_sorted >= 4)
             {
+                if (stopwatch.IsRunning)
+                {
+                    stopwatch.Stop();
+                }
+                elapsedtimeitem.Items.Add(currentTime);
                 MessageBox.Show("Juego Terminado");
+                InitializeComponent();
+                reset_window();
             }
         }
 
@@ -105,9 +170,15 @@ namespace SortingColorsGame
                 blue_images_sorted++;
             }
 
-            if (red_images_sorted == 4 && blue_images_sorted == 4 && green_images_sorted == 4 && yellow_images_sorted == 4)
+            if (red_images_sorted >= 4 && blue_images_sorted >= 4 && green_images_sorted >= 4 && yellow_images_sorted >= 4)
             {
+                if (stopwatch.IsRunning)
+                {
+                    stopwatch.Stop();
+                }
+                elapsedtimeitem.Items.Add(currentTime);
                 MessageBox.Show("Juego Terminado");
+                reset_window();
             }
         }
 
@@ -124,9 +195,15 @@ namespace SortingColorsGame
                 green_images_sorted++;
             }
 
-            if (red_images_sorted == 4 && blue_images_sorted == 4 && green_images_sorted == 4 && yellow_images_sorted == 4)
+            if (red_images_sorted >= 4 && blue_images_sorted >= 4 && green_images_sorted >= 4 && yellow_images_sorted >= 4)
             {
+                if (stopwatch.IsRunning)
+                {
+                    stopwatch.Stop();
+                }
+                elapsedtimeitem.Items.Add(currentTime);
                 MessageBox.Show("Juego Terminado");
+                reset_window();
             }
         }
 
@@ -143,10 +220,25 @@ namespace SortingColorsGame
                 yellow_images_sorted++;
             }
 
-            if (red_images_sorted == 4 && blue_images_sorted == 4 && green_images_sorted == 4 && yellow_images_sorted == 4)
+            if (red_images_sorted >= 4 && blue_images_sorted >= 4 && green_images_sorted >= 4 && yellow_images_sorted >= 4)
             {
+                if (stopwatch.IsRunning)
+                {
+                    stopwatch.Stop();
+                }
+                elapsedtimeitem.Items.Add(currentTime);
                 MessageBox.Show("Juego Terminado");
+                reset_window();
             }
+        }
+
+        private void finishbtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Tiempo de ordenamiento: " + currentTime);
+            SortingGame sortingGame = new SortingGame();
+            sortingGame.WindowState = WindowState.Maximized;
+            this.Close();
+            sortingGame.ShowDialog();
         }
     }
 }
